@@ -37,7 +37,7 @@ if (Meteor.isServer) {
         Tweets.remove({});
       }
 
-      stream = client.stream("statuses/filter", {track: query});
+      stream = client.stream("statuses/filter", {locations:"-81.7281, -4.2305, -66.8698, 13.3903"});
       stream.on("data", Meteor.bindEnvironment(function(tweet) {
         // console.log(tweet.text);
         // resolve(tweet);

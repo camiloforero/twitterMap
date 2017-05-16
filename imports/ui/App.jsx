@@ -6,6 +6,8 @@ import { createContainer} from "meteor/react-meteor-data"
 import TweetsResults from "./TweetsResults.jsx";
 import {Tweets} from "../api/Tweets.js";
 
+import ColombiaMap from "./ColombiaMap.jsx";
+
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -39,6 +41,13 @@ export class App extends Component {
           <TweetsResults tweets={this.props.tweets}/> :
           <p>Enter a query</p>
         }
+        <ColombiaMap
+          width="600"
+          height="600"
+          data={{RISARALDA:10}}
+          >
+        </ColombiaMap>
+        <canvas id="canvas" width="600" height="600" style={{position:'relative'}}></canvas>
 
       </div>
     );
