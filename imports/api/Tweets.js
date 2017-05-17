@@ -41,7 +41,9 @@ if (Meteor.isServer) {
       stream.on("data", Meteor.bindEnvironment(function(tweet) {
         // console.log(tweet.text);
         // resolve(tweet);
-        Tweets.insert(tweet);
+        if(tweet.coordinates) {          
+          Tweets.insert(tweet);
+        }
       }));
 
       stream.on("error", function(error) {
